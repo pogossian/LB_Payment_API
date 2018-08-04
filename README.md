@@ -111,3 +111,70 @@ Run uwsgi
 ```
 /var/LB_Payment_API/env/bin/uwsgi --ini /var/LB_Payment_API/lb_api.ini
 ```
+
+To stop uwsgi
+```
+/var/LB_Payment_API/env/bin/uwsgi --stop /var/run/uwsgi_lb_api
+```
+###### _use [superviser](http://supervisord.org) or custom script to start and stop uwsgi_
+
+## Usage
+
+Do request for check function (specify terminal, authkey and uid)
+
+https://{hostname}:444/check/terminal=terminal1&authkey=74234hfn2i378423uif2f34&uid={user_id}
+
+A successful request will bring back account name and agreement information.
+
+```
+{
+  "name": "Customer Fullname",
+  "agreements": [
+    {
+      "agrm_id": 4,
+      "agrm_name": "28/07/2013/0001"
+    },
+    {
+      "agrm_id": 14225,
+      "agrm_name": "6435/01/06/2017-TV"
+    },
+    {
+      "agrm_id": 16203,
+      "agrm_name": "voip-00123/13/02/2018"
+    },
+    {
+      "agrm_id": 16219,
+      "agrm_name": "00136/14/02/2018-Voip"
+    }
+  ]
+}
+```
+
+Do request for payment function (specify terminal, authkey, agrm_id, amount and receipt)
+
+https://{hostname}:444/payment/terminal=terminal1&authkey=74234hfn2i378423uif2f34&agrm_id=14225&amount=100&receipt=20180521141520-14225
+
+A successful request will bring back Payment ID.
+```
+{
+"record_id": "809661"
+}
+```
+
+Do request for status function (specify terminal, authkey and record_id)
+
+https://{hostname}:444/status/terminal=terminal1&authkey=74234hfn2i378423uif2f34&record_id=809661
+
+A successful request will bring back account id, agreement id, receipt, terminal name, amount,
+timestamp and payment date
+```
+{
+  "uid": 4,
+  "timestamp": 1526897719,
+  "receipt": "20180521141520-14225",
+  "terminal": "Easypay",
+  "amount": 100,
+  "pay_date": "2018-05-21 14:15:19",
+  "agrm_id": 14225
+}
+```
