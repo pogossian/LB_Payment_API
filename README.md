@@ -23,5 +23,14 @@ Activate virtualenv
 
 Install requirements [LANBilling wrapper](https://github.com/brdk/lanbilling) and [Flask](https://github.com/pallets/flask)
 
+After requirements installation remove repositories (if you clone them) and try to import installed modules in interactive mode
+
+```
+$ python
+>>> import lanbilling
+>>> import flask
+>>> exit()
+```
+
 Deactivate virtualenv
 `$ deactivate`
