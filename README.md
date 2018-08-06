@@ -102,7 +102,7 @@ server {
 
 }
 ```
-###### _don't use without ssl_
+###### _don't use without ssl (unless you want be sniffed)_
 
 Test and Reload nginx 
 ```
