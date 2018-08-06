@@ -184,7 +184,7 @@ timestamp and payment date
   "uid": 4,
   "timestamp": 1526897719,
   "receipt": "20180521141520-14225",
-  "terminal": "Easypay",
+  "terminal": "terminal1",
   "amount": 100,
   "pay_date": "2018-05-21 14:15:19",
   "agrm_id": 14225
