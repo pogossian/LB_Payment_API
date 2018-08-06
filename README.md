@@ -73,6 +73,12 @@ keys = {
 }
 ```
 
+And, at the end fill manager login/password at line 8
+
+```
+lbapi = LANBilling(manager='username', password='password', host='127.0.0.1', port=1502)
+```
+
 Save and exit
 
 Create vhost in nginx for uwsgi
@@ -122,7 +128,9 @@ To stop uwsgi
 
 Do request for check function (specify terminal, authkey and uid)
 
+```
 https://{hostname}:444/check/terminal=terminal1&authkey=74234hfn2i378423uif2f34&uid={user_id}
+```
 
 A successful request will bring back account name and agreement information.
 
@@ -152,7 +160,9 @@ A successful request will bring back account name and agreement information.
 
 Do request for payment function (specify terminal, authkey, agrm_id, amount and receipt)
 
+```
 https://{hostname}:444/payment/terminal=terminal1&authkey=74234hfn2i378423uif2f34&agrm_id=14225&amount=100&receipt=20180521141520-14225
+```
 
 A successful request will bring back Payment ID.
 ```
@@ -163,7 +173,9 @@ A successful request will bring back Payment ID.
 
 Do request for status function (specify terminal, authkey and record_id)
 
+```
 https://{hostname}:444/status/terminal=terminal1&authkey=74234hfn2i378423uif2f34&record_id=809661
+```
 
 A successful request will bring back account id, agreement id, receipt, terminal name, amount,
 timestamp and payment date
