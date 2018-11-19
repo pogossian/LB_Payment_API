@@ -164,7 +164,7 @@ Do request for payment function (specify terminal, authkey, agrm_id, amount and 
 https://{hostname}:444/payment/terminal=terminal1&authkey=74234hfn2i378423uif2f34&agrm_id=14225&amount=100&receipt=20180521141520-14225
 ```
 
-A successful request will bring back Payment ID.
+A successful request will bring back Payment ID
 ```
 {
 "record_id": "809661"
